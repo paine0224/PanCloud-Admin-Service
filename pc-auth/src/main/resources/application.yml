@@ -1,0 +1,21 @@
+server:
+  port: 8763
+spring:
+  application:
+    name: auth
+  redis:
+    database: 1
+    host: 127.0.0.1
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/pancloud?autoReconnect=true&autoReconnectForPools=true&useSSL=true&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+eureka:
+  instance:
+    status-page-url: /info
+    health-check-url-path: /health
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+

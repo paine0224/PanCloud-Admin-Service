@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: gateway
+server:
+  port: 8084
+
+eureka:
+  instance:
+    status-page-url: /info
+    health-check-url-path: /health
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+zuul:
+  routes:
+    auth:
+      path: /auth/**
+      sensitiveHeaders: "*"
+      serviceId: auth
+    admin:
+      path: /admin/**
+      sensitiveHeaders: "*"
+      serviceId: admin

@@ -1,0 +1,28 @@
+server:
+  port: 8765
+spring:
+  application:
+    name: admin
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/pancloud?autoReconnect=true&autoReconnectForPools=true&useSSL=true&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+
+eureka:
+  instance:
+    status-page-url: /info
+    health-check-url-path: /health
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+security:
+  oauth2:
+    client:
+      access-token-uri: http://localhost:8084/auth/oauth/token
+      user-authorization-uri: http://localhost:8084/auth/oauth/authorize
+      client-id: webapp
+    resource:
+      user-info-uri: http://localhost:8084/auth/user
+      prefer-token-info: false
